@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Resume Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-image: url('BEG1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        h1 {
+            color: #000000; /* White text color */
+             /* Optional: Add a text shadow for better visibility */
+        }
+        .tagline {
+            color: #000000;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .container {
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 800px;
+            flex-wrap: wrap;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgb(64, 107, 71);
+        }
+        .template-option {
+            width: 200px;
+            height: 230px; /* Adjusted height to accommodate image */
+            margin: 20px;
+            padding: 20px;
+            /* Example gradient background */
+            background: linear-gradient(45deg, #81be72, #e6d8ba);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            flex: 1;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .template-option:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .template-option:focus {
+            transform: scale(1.3);
+            z-index: 1;
+        }
+        .template-option h2,
+        .template-option p {
+            margin: 0;
+            color: #333;
+        }
+        .template-option img {
+            width: 120px; /* Increased width */
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #000000;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer .highlight {
+            font-weight: bold;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Your Resume Template</h1>
+    <div class="tagline">Create a standout resume in a minute😉</div>
+    <div class="container">
+        <div class="template-option" onclick="selectTemplate('template1.html')">
+            <img src="t1.png" alt="Template 1">
+            <h2>Template 1</h2>
+            <p>Simple and Clean</p>
+        </div>
+        <div class="template-option" onclick="selectTemplate('template2.html')">
+            <img src="t2.png" alt="Template 2">
+            <h2>Template 2</h2>
+            <p>Professional</p>
+        </div>
+        <div class="template-option" onclick="selectTemplate('template3.html')">
+            <img src="t3.png" alt="Template 3">
+            <h2>Template 3</h2>
+            <p>Modern</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p><span class="highlight">Website by:</span> Shehenshah S M</p>
+        <p><span class="highlight">Contact:</span> smshehenshah777gmail.com</p>
+    </div>
+    <script>
+        function selectTemplate(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

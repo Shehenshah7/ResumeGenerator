@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator - Template 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            justify-content: space-between;
+        }
+        .section {
+            width: 30%;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: calc(100% - 10px);
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="file"] {
+            width: auto;
+        }
+        button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 5px 10px 0;
+            background-color: #006400; /* Dark Green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #004d00;
+        }
+        .resume-output {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .resume-container {
+            width: 8.5in;
+            height: 11in;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            box-sizing: border-box;
+        }
+        .resume-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .resume-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .resume-header p {
+            margin: 5px 0 0;
+            font-size: 18px;
+        }
+        .resume-contact, .resume-summary, .resume-education, .resume-experience {
+            margin-bottom: 20px;
+        }
+        .resume-contact div, .resume-summary div, .resume-education div, .resume-experience div {
+            margin-bottom: 5px;
+        }
+        .resume-list {
+            list-style-type: disc;
+            margin: 0;
+            padding-left: 20px;
+        }
+        .resume-list li {
+            margin-bottom: 5px;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid black;
+            margin: 10px 0;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Generator - Template 2</h1>
+        <form id="resume-form">
+            <div class="section">
+                <h2>Personal Details</h2>
+                <label for="first-name">First name</label>
+                <input type="text" id="first-name" placeholder="Enter your first name">
+                
+                <label for="last-name">Last name</label>
+                <input type="text" id="last-name" placeholder="Enter your last name">
+                
+                <label for="qualification">Qualification</label>
+                <input type="text" id="qualification" placeholder="Eg. Btech graduate">
+                
+                <label for="mobile">Mobile number</label>
+                <input type="text" id="mobile" placeholder="Enter your mobile number">
+                
+                <label for="email">Mail ID</label>
+                <input type="text" id="email" placeholder="Enter your mail ID">
+                
+                <label for="address">Address</label>
+                <input type="text" id="address" placeholder="Eg. Hyderabad, Telangana">
+                
+                <label for="linkedin">LinkedIn</label>
+                <input type="text" id="linkedin" placeholder="Enter your LinkedIn username">
+                
+            </div>
+            <div class="section">
+                <h2>Education Details</h2>
+                <label for="course">Course</label>
+                <input type="text" id="course" placeholder="Enter your Course">
+                
+                <label for="college">College name</label>
+                <input type="text" id="college" placeholder="Enter your college name">
+                
+                <label for="start-year">Start year</label>
+                <input type="text" id="start-year" placeholder="Enter the course starting year">
+                
+                <label for="end-year">Ending year</label>
+                <input type="text" id="end-year" placeholder="Enter the course ending year">
+                
+                <label for="comments">Comments</label>
+                <input type="text" id="comments" placeholder="Eg. Class second">
+            </div>
+            <div class="section">
+                <h2>Professional Details</h2>
+                <label for="skills">Skills</label>
+                <div id="skills-container">
+                    <input type="text" id="skills" placeholder="Enter your skills">
+                </div>
+                <button type="button" onclick="addInput('skills-container')">Add</button>
+                
+                <label for="certifications">Certifications</label>
+                <div id="certifications-container">
+                    <input type="text" id="certifications" placeholder="Enter your certifications">
+                </div>
+                <button type="button" onclick="addInput('certifications-container')">Add</button>
+                
+                <label for="languages">Languages Known</label>
+                <div id="languages-container">
+                    <input type="text" id="languages" placeholder="Enter languages you know">
+                </div>
+                <button type="button" onclick="addInput('languages-container')">Add</button>
+                
+                <label for="about">About</label>
+                <textarea id="about" placeholder="Tell us about yourself"></textarea>
+                
+                <label for="activities">Extracurricular Activities</label>
+                <div id="activities-container">
+                    <input type="text" id="activities" placeholder="Enter your Extracurricular Activities">
+                </div>
+                <button type="button" onclick="addInput('activities-container')">Add</button>
+            </div>
+        </form>
+        <button type="button" onclick="generateResume()">Generate Resume</button>
+        <button type="button" onclick="downloadResume()">Download Resume</button>
+        <div id="resume-output" class="resume-output"></div>
+    </div>
+
+    <script>
+        function addInput(containerId) {
+            const container = document.getElementById(containerId);
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = container.querySelector('input').placeholder;
+            input.style.marginTop = '5px';
+            container.appendChild(input);
+        }
+
+        function generateResume() {
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const qualification = document.getElementById('qualification').value;
+            const mobile = document.getElementById('mobile').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const linkedin = document.getElementById('linkedin').value;
+            const course = document.getElementById('course').value;
+            const college = document.getElementById('college').value;
+            const startYear = document.getElementById('start-year').value;
+            const endYear = document.getElementById('end-year').value;
+            const comments = document.getElementById('comments').value;
+            const skills = Array.from(document.querySelectorAll('#skills-container input')).map(input => input.value);
+            const certifications = Array.from(document.querySelectorAll('#certifications-container input')).map(input => input.value);
+            const languages = Array.from(document.querySelectorAll('#languages-container input')).map(input => input.value);
+            const about = document.getElementById('about').value;
+            const activities = Array.from(document.querySelectorAll('#activities-container input')).map(input => input.value);
+
+            const resumeOutput = `
+                <div class="resume-container" id="resume">
+                    <div class="resume-header">
+                        <h1>${firstName} ${lastName}</h1>
+                        <p>${qualification}</p>
+                    </div>
+                    <hr>
+                    <div class="resume-contact">
+                        <div><strong>Contact:</strong></div>
+                        <div>${mobile}</div>
+                        <div>${email}</div>
+                        <div>${address}</div>
+                        <div>${linkedin}</div>
+                    </div>
+                    <hr>
+                    <div class="resume-summary">
+                        <h3>Summary</h3>
+                        <div>${about}</div>
+                    </div>
+                    <hr>
+                    <div class="resume-education">
+                        <h3>Education</h3>
+                        <div><strong>Course:</strong> ${course}</div>
+                        <div><strong>College:</strong> ${college}</div>
+                        <div><strong>Years:</strong> ${startYear} - ${endYear}</div>
+                        <div><strong>Comments:</strong> ${comments}</div>
+                    </div>
+                    <hr>
+                    <div class="resume-professional">
+                        <h3>Professional Details</h3>
+                        <div><strong>Skills:</strong></div>
+                        <ul class="resume-list">${skills.map(skill => `<li>${skill}</li>`).join('')}</ul>
+                        <div><strong>Certifications:</strong></div>
+                        <ul class="resume-list">${certifications.map(cert => `<li>${cert}</li>`).join('')}</ul>
+                        <div><strong>Languages Known:</strong></div>
+                        <ul class="resume-list">${languages.map(lang => `<li>${lang}</li>`).join('')}</ul>
+                        <div><strong>Extracurricular Activities:</strong></div>
+                        <ul class="resume-list">${activities.map(act => `<li>${act}</li>`).join('')}</ul>
+                    </div>
+                </div>
+            `;
+            document.getElementById('resume-output').innerHTML = resumeOutput;
+
+            // Adjust font size if content exceeds available space
+            const resumeContainer = document.querySelector('.resume-container');
+            while (resumeContainer.scrollHeight > resumeContainer.clientHeight) {
+                const currentFontSize = parseFloat(window.getComputedStyle(resumeContainer).fontSize);
+                resumeContainer.style.fontSize = (currentFontSize - 1) + 'px';
+            }
+        }
+
+        function downloadResume() {
+            const resumeElement = document.getElementById('resume');
+            const options = {
+                scale: 2,
+                useCORS: true, // Enable cross-origin for images
+                logging: true, // Enable logging for troubleshooting
+                allowTaint: false, // Allow cross-origin content
+                ignoreElements: (element) => element.classList.contains('ignore-for-pdf')
+            };
+
+            html2canvas(resumeElement, options).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'in',
+                    format: [8.5, 11]
+                });
+                pdf.addImage(imgData, 'PNG', 0, 0, 8.5, 11);
+                pdf.save('resume.pdf');
+            });
+        }
+    </script>
+</body>
+</html>
